@@ -246,12 +246,22 @@ button, input, select, textarea { font: inherit; color: inherit; }
   padding: 80px 40px;
   overflow: hidden;
 }
+/* photo d'ambiance, voilée pour garder la citation lisible */
+.hero-visual .photo {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  filter: brightness(.42) sepia(.25) saturate(.85);
+  transform: scale(1.04);
+  animation: heroZoom 18s ease-out forwards;
+}
+@keyframes heroZoom { to { transform: scale(1); } }
 /* cadre fin façon passe-partout */
 .hero-visual::before {
   content: "";
   position: absolute; inset: clamp(20px, 3vw, 40px);
-  border: 1px solid color-mix(in srgb, var(--terre) 40%, transparent);
+  border: 1px solid color-mix(in srgb, var(--sable) 35%, transparent);
   pointer-events: none;
+  z-index: 1;
 }
 /* halo de lumière rasante */
 .hero-visual::after {
@@ -280,7 +290,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
   bottom: clamp(36px, 4.5vw, 60px); left: 0; right: 0;
   text-align: center;
   font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--terre);
+  color: var(--brume);
 }
 
 .reassurance {
@@ -372,15 +382,15 @@ button, input, select, textarea { font: inherit; color: inherit; }
   isolation: isolate;
 }
 .galerie .item:first-child { grid-row: 1 / 3; }
-/* placeholders : lumière rasante simulée, à remplacer par les photos */
+/* voile : dégradé bas pour le label, assombri au survol pour révéler le mot */
 .galerie .item::before {
   content: ""; position: absolute; inset: 0; z-index: -1;
   background:
-    linear-gradient(115deg, transparent 30%, color-mix(in srgb, var(--or) 10%, transparent) 48%, transparent 66%),
-    radial-gradient(ellipse at 80% 10%, color-mix(in srgb, var(--sable) 10%, transparent), transparent 60%);
-  transition: transform 1.2s var(--ease), opacity .6s;
+    linear-gradient(to top, color-mix(in srgb, var(--nuit) 75%, transparent) 0%, transparent 45%),
+    color-mix(in srgb, var(--nuit) 0%, transparent);
+  transition: background-color .6s var(--ease);
 }
-.galerie .item:hover::before { transform: scale(1.08) translateX(4%); }
+.galerie .item:hover::before { background-color: color-mix(in srgb, var(--nuit) 45%, transparent); }
 .galerie .item img {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2;
   transition: transform 1.2s var(--ease);
@@ -389,7 +399,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .galerie .label {
   font-family: var(--f-body); font-weight: 700; font-size: 10px;
   text-transform: uppercase; letter-spacing: 0.1em;
-  color: var(--brume);
+  color: var(--sable);
   display: flex; align-items: center; gap: 12px;
 }
 .galerie .label::before { content: ""; width: 20px; height: 1px; background: var(--or); }
@@ -397,12 +407,12 @@ button, input, select, textarea { font: inherit; color: inherit; }
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
   font-family: var(--f-display); font-weight: 300; font-style: italic;
   font-size: clamp(26px, 2.6vw, 38px); letter-spacing: 0.18em; text-transform: uppercase;
-  color: color-mix(in srgb, var(--sable) 22%, transparent);
+  color: transparent;
   white-space: nowrap; pointer-events: none;
   transition: color .6s var(--ease);
 }
 .galerie .item:first-child .mot { font-size: clamp(36px, 4.4vw, 64px); }
-.galerie .item:hover .mot { color: color-mix(in srgb, var(--sable) 50%, transparent); }
+.galerie .item:hover .mot { color: var(--ivoire); }
 .galerie-cta { margin-top: 48px; display: flex; justify-content: center; }
 
 /* ============ 6. TÉMOIGNAGES ============ */
@@ -671,6 +681,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
         </div>
       </div>
       <div class="hero-visual" aria-hidden="true">
+        <img class="photo" src="images/hero-salon.jpg" alt="" fetchpriority="high">
         <p class="hero-quote">
           <span class="mark">«</span>
           Douceur <span class="dot">·</span> Évasion <span class="dot">·</span> Élégance <span class="dot">·</span> Clarté <span class="dot">·</span> Harmonie
@@ -782,13 +793,13 @@ button, input, select, textarea { font: inherit; color: inherit; }
         <h2 class="h2 reveal" id="real-title" style="--i:1"><em>Intérieurs imaginés, espaces transformés.</em></h2>
       </div>
 
-      <!-- Remplacer chaque placeholder par : <img src="photo.jpg" alt="…" loading="lazy"> dans .item -->
+      <!-- Photos libres de droits (Unsplash) : à remplacer par les réalisations du studio, en gardant les mêmes noms de fichiers dans images/ -->
       <div class="galerie">
-        <figure class="item reveal" style="--i:0"><span class="mot" aria-hidden="true">Douceur</span><figcaption class="label">Salon · Douceur</figcaption></figure>
-        <figure class="item reveal" style="--i:1"><span class="mot" aria-hidden="true">Évasion</span><figcaption class="label">Chambre · Évasion</figcaption></figure>
-        <figure class="item reveal" style="--i:2"><span class="mot" aria-hidden="true">Clarté</span><figcaption class="label">Cuisine · Clarté</figcaption></figure>
-        <figure class="item reveal" style="--i:3"><span class="mot" aria-hidden="true">Élégance</span><figcaption class="label">Salle de bain · Élégance</figcaption></figure>
-        <figure class="item reveal" style="--i:4"><span class="mot" aria-hidden="true">Harmonie</span><figcaption class="label">Entrée · Harmonie</figcaption></figure>
+        <figure class="item reveal" style="--i:0"><img src="images/salon-douceur.jpg" alt="Salon lumineux aux tons beige, miroirs en rotin et canapé crème" loading="lazy"><span class="mot" aria-hidden="true">Douceur</span><figcaption class="label">Salon · Douceur</figcaption></figure>
+        <figure class="item reveal" style="--i:1"><img src="images/chambre-evasion.jpg" alt="Chambre apaisante avec linge de lit naturel, plantes et suspension en bois" loading="lazy"><span class="mot" aria-hidden="true">Évasion</span><figcaption class="label">Chambre · Évasion</figcaption></figure>
+        <figure class="item reveal" style="--i:2"><img src="images/cuisine-clarte.jpg" alt="Cuisine blanche et lumineuse avec plan de travail en marbre" loading="lazy"><span class="mot" aria-hidden="true">Clarté</span><figcaption class="label">Cuisine · Clarté</figcaption></figure>
+        <figure class="item reveal" style="--i:3"><img src="images/salle-de-bain-elegance.jpg" alt="Salle de bain claire avec vasque blanche et plantes vertes" loading="lazy"><span class="mot" aria-hidden="true">Élégance</span><figcaption class="label">Salle de bain · Élégance</figcaption></figure>
+        <figure class="item reveal" style="--i:4"><img src="images/salle-a-manger-harmonie.jpg" alt="Salle à manger avec chaises en velours vert et grande plante" loading="lazy"><span class="mot" aria-hidden="true">Harmonie</span><figcaption class="label">Salle à manger · Harmonie</figcaption></figure>
       </div>
 
       <div class="galerie-cta reveal">
