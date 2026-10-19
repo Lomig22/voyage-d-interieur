@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voyage d'Intérieur — Décoration & Aménagement</title>
+<meta name="description" content="Voyage d'Intérieur, studio de décoration intérieure : conseil, moodboard, shopping accompagné, aménagement et suivi de projet. Révélez le potentiel de votre intérieur.">
+<meta property="og:title" content="Voyage d'Intérieur — Décoration & Aménagement">
+<meta property="og:description" content="Révélez le potentiel de votre intérieur. Accompagnement déco personnalisé, de A à Z.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#E8DFD0">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@400;500;700&display=swap');
+
+/* ============ TOKENS ============ */
+:root {
+  --sable:  #E8DFD0;
+  --ivoire: #F7F4EF;
+  --nuit:   #1C1A18;
+  --terre:  #7A6A58;
+  --brume:  #B5A898;
+  --or:     #C4A060;
+
+  --f-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --f-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+
+  --bandeau-h: 36px;
+  --header-h: 84px;
+  --gutter: clamp(20px, 5vw, 64px);
+  --maxw: 1240px;
+  --ease: cubic-bezier(.22, .61, .36, 1);
+
+  /* Motif chevrons — tuile 20×20, stroke terre (#7A6A58) à 6 % */
+  --chevrons: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M0 10 L10 0 M10 20 L20 10' stroke='%237A6A58' stroke-opacity='0.06' stroke-width='0.5' fill='none'/%3E%3C/svg%3E");
+}
+
+/* ============ BASE ============ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--bandeau-h) + var(--header-h)); -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--f-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--nuit);
+  background: var(--ivoire);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button, input, select, textarea { font: inherit; color: inherit; }
+::selection { background: var(--or); color: var(--nuit); }
+:focus-visible { outline: 1px solid var(--or); outline-offset: 3px; }
+
+.container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+.bg-sable  { background-color: var(--sable); background-image: var(--chevrons); background-size: 20px 20px; }
+.bg-ivoire { background: var(--ivoire); }
+.bg-nuit   { background: var(--nuit); }
+
+.section { padding: clamp(80px, 10vw, 128px) 0; }
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--f-body);
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--terre);
+  margin-bottom: 24px;
+}
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 28px; height: 1px;
+  background: var(--or);
+  vertical-align: middle;
+  margin-right: 14px;
+}
+
+.h2 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(36px, 4.6vw, 58px);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: var(--nuit);
+  max-width: 760px;
+}
+.lead {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--terre);
+  max-width: 520px;
+  margin-top: 24px;
+}
+.section-head { margin-bottom: clamp(48px, 6vw, 80px); }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  font-family: var(--f-body);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  padding: 16px 30px;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease), transform .3s var(--ease);
+  white-space: nowrap;
+}
+.btn-or { background: var(--or); color: var(--nuit); }
+.btn-or:hover { background: var(--nuit); color: var(--or); }
+.btn-line { background: transparent; color: var(--nuit); border-color: var(--nuit); }
+.btn-line:hover { background: var(--nuit); color: var(--ivoire); }
+.btn .arrow { transition: transform .3s var(--ease); }
+.btn:hover .arrow { transform: translateX(4px); }
+
+/* ============ 0. BANDEAU ============ */
+.bandeau {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 110;
+  height: var(--bandeau-h);
+  background: var(--nuit);
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 16px;
+  font-family: var(--f-body);
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--brume);
+  white-space: nowrap;
+  overflow: hidden;
+}
+.bandeau a { text-transform: none; letter-spacing: 0.06em; transition: color .2s; }
+.bandeau a:hover { color: var(--or); }
+.bandeau .sep { margin: 0 10px; color: var(--terre); }
+
+/* ============ 1. HEADER ============ */
+.header {
+  position: fixed; top: var(--bandeau-h); left: 0; right: 0;
+  z-index: 100;
+  height: var(--header-h);
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background-color .4s var(--ease), border-color .4s var(--ease), height .4s var(--ease), backdrop-filter .4s;
+}
+.header.scrolled {
+  background: color-mix(in srgb, var(--ivoire) 96%, transparent);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-bottom-color: color-mix(in srgb, var(--brume) 35%, transparent);
+  height: 72px;
+}
+.header .container { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+
+.logo { display: flex; flex-direction: column; line-height: 1; }
+.logo-name { font-family: var(--f-display); font-size: 26px; color: var(--nuit); letter-spacing: -0.005em; }
+.logo-name .v { font-weight: 300; font-style: italic; }
+.logo-name .i { font-weight: 600; }
+.logo-sub {
+  font-family: var(--f-body); font-weight: 400; font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--terre);
+  margin-top: 6px;
+}
+
+.nav { display: flex; align-items: center; gap: clamp(20px, 3vw, 40px); }
+.nav-links { display: flex; gap: clamp(20px, 2.6vw, 36px); list-style: none; }
+.nav-links a {
+  position: relative;
+  font-size: 14px; font-weight: 400; color: var(--nuit);
+  padding: 6px 0;
+  transition: color .2s;
+}
+.nav-links a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0;
+  height: 1px; background: var(--or);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .35s var(--ease);
+}
+.nav-links a:hover, .nav-links a.active { color: var(--or); }
+.nav-links a.active::after { transform: scaleX(1); }
+.btn-header {
+  background: var(--or); color: var(--ivoire);
+  font-size: 13px; font-weight: 500;
+  padding: 12px 22px; border-radius: 2px;
+  transition: background-color .3s var(--ease), color .3s var(--ease);
+}
+.btn-header:hover { background: var(--nuit); color: var(--or); }
+
+.burger {
+  display: none;
+  width: 44px; height: 44px;
+  background: none; border: 0; cursor: pointer;
+  position: relative;
+}
+.burger span {
+  position: absolute; left: 11px; right: 11px; height: 1px; background: var(--nuit);
+  transition: transform .35s var(--ease), opacity .2s;
+}
+.burger span:nth-child(1) { top: 17px; }
+.burger span:nth-child(2) { top: 22px; }
+.burger span:nth-child(3) { top: 27px; }
+.menu-open .burger span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+.menu-open .burger span:nth-child(2) { opacity: 0; }
+.menu-open .burger span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+
+/* ============ 2. HERO ============ */
+.hero {
+  padding-top: calc(var(--bandeau-h) + var(--header-h));
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  min-height: min(calc(100vh - var(--bandeau-h) - var(--header-h) - 56px), 860px);
+  min-height: min(calc(100svh - var(--bandeau-h) - var(--header-h) - 56px), 860px);
+}
+.hero-text {
+  padding: clamp(80px, 10vw, 140px) clamp(32px, 5vw, 80px) clamp(80px, 10vw, 140px) max(var(--gutter), calc((100vw - var(--maxw)) / 2 + var(--gutter)));
+  display: flex; flex-direction: column; justify-content: center;
+}
+.hero h1 {
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(48px, 6.4vw, 84px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--nuit);
+}
+.hero h1 .l { display: block; }
+.hero h1 .or { color: var(--or); }
+.hero-sub {
+  font-size: 17px; line-height: 1.7; color: var(--terre);
+  max-width: 440px;
+  margin-top: 32px;
+}
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 44px; }
+
+.hero-visual {
+  background: var(--nuit);
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  padding: 80px 40px;
+  overflow: hidden;
+}
+/* cadre fin façon passe-partout */
+.hero-visual::before {
+  content: "";
+  position: absolute; inset: clamp(20px, 3vw, 40px);
+  border: 1px solid color-mix(in srgb, var(--terre) 40%, transparent);
+  pointer-events: none;
+}
+/* halo de lumière rasante */
+.hero-visual::after {
+  content: "";
+  position: absolute;
+  width: 140%; aspect-ratio: 1;
+  top: -60%; right: -70%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--or) 16%, transparent) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-quote {
+  position: relative; z-index: 1;
+  font-family: var(--f-display);
+  font-weight: 300; font-style: italic;
+  font-size: 22px; line-height: 1.9;
+  color: var(--sable);
+  max-width: 280px;
+  text-align: center;
+  letter-spacing: 0.08em;
+}
+.hero-quote .mark { display: block; font-size: 64px; line-height: .6; color: var(--or); margin-bottom: 20px; font-style: normal; }
+.hero-quote .mark.end { margin: 28px 0 0; }
+.hero-quote .dot { color: var(--or); }
+.hero-visual .caption {
+  position: absolute; z-index: 1;
+  bottom: clamp(36px, 4.5vw, 60px); left: 0; right: 0;
+  text-align: center;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--terre);
+}
+
+.reassurance {
+  background: var(--nuit);
+  border-top: 1px solid color-mix(in srgb, var(--terre) 35%, transparent);
+  min-height: 56px;
+  display: flex; align-items: center;
+}
+.reassurance ul {
+  list-style: none;
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+  gap: 8px 40px;
+  padding: 16px var(--gutter);
+  width: 100%;
+  font-size: 13px; color: var(--brume); letter-spacing: 0.04em;
+}
+.reassurance li { display: flex; align-items: center; gap: 10px; }
+
+/* ============ 3. SERVICES ============ */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: color-mix(in srgb, var(--brume) 45%, transparent);
+  border: 1px solid color-mix(in srgb, var(--brume) 45%, transparent);
+}
+.service {
+  background: var(--sable);
+  border-radius: 0;
+  border-bottom: 2px solid var(--or);
+  padding: 32px;
+  display: flex; flex-direction: column;
+  min-height: 340px;
+  position: relative;
+  transition: background-color .5s var(--ease);
+}
+.service:hover { background: var(--ivoire); }
+.service-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px; }
+.service-icon { font-size: 26px; line-height: 1; }
+.service-num { font-family: var(--f-display); font-style: italic; font-weight: 300; font-size: 18px; color: var(--brume); }
+.service h3 {
+  font-family: var(--f-display); font-weight: 600; font-size: 28px; line-height: 1.15;
+  color: var(--nuit); margin-bottom: 10px;
+}
+.service .accroche {
+  font-family: var(--f-display); font-style: italic; font-weight: 400; font-size: 19px;
+  color: var(--terre); line-height: 1.35; margin-bottom: 18px;
+}
+.service p { font-size: 14.5px; line-height: 1.75; color: var(--terre); }
+
+/* ============ 4. APPROCHE ============ */
+.approche { padding: clamp(120px, 14vw, 180px) 0; text-align: center; }
+.approche .inner { max-width: 680px; margin: 0 auto; }
+.approche .eyebrow { color: var(--or); }
+.approche .eyebrow::before { display: none; }
+.approche h2 {
+  font-family: var(--f-display); font-weight: 300; font-style: italic;
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 1.15; color: var(--ivoire);
+  letter-spacing: -0.01em;
+}
+.approche .orn { width: 1px; height: 56px; background: var(--or); margin: 40px auto; opacity: .7; }
+.approche p.texte { font-size: 17px; line-height: 1.8; color: var(--brume); }
+.valeurs {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;
+  max-width: 960px; margin: 88px auto 0;
+  text-align: left;
+}
+.valeur { background: var(--nuit); border-top: 1px solid var(--terre); padding-top: 24px; }
+.valeur h3 {
+  font-family: var(--f-display); font-weight: 400; font-style: italic; font-size: 28px;
+  color: var(--or); margin-bottom: 10px;
+}
+.valeur p { font-size: 14.5px; line-height: 1.7; color: var(--brume); }
+
+/* ============ 5. RÉALISATIONS ============ */
+.galerie {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 260px 260px;
+  gap: 3px;
+}
+.galerie .item {
+  position: relative;
+  background: var(--nuit);
+  overflow: hidden;
+  display: flex; align-items: flex-end;
+  padding: 24px;
+  isolation: isolate;
+}
+.galerie .item:first-child { grid-row: 1 / 3; }
+/* placeholders : lumière rasante simulée, à remplacer par les photos */
+.galerie .item::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(115deg, transparent 30%, color-mix(in srgb, var(--or) 10%, transparent) 48%, transparent 66%),
+    radial-gradient(ellipse at 80% 10%, color-mix(in srgb, var(--sable) 10%, transparent), transparent 60%);
+  transition: transform 1.2s var(--ease), opacity .6s;
+}
+.galerie .item:hover::before { transform: scale(1.08) translateX(4%); }
+.galerie .item img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2;
+  transition: transform 1.2s var(--ease);
+}
+.galerie .item:hover img { transform: scale(1.04); }
+.galerie .label {
+  font-family: var(--f-body); font-weight: 700; font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--brume);
+  display: flex; align-items: center; gap: 12px;
+}
+.galerie .label::before { content: ""; width: 20px; height: 1px; background: var(--or); }
+.galerie .mot {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  font-family: var(--f-display); font-weight: 300; font-style: italic;
+  font-size: clamp(26px, 2.6vw, 38px); letter-spacing: 0.18em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--sable) 22%, transparent);
+  white-space: nowrap; pointer-events: none;
+  transition: color .6s var(--ease);
+}
+.galerie .item:first-child .mot { font-size: clamp(36px, 4.4vw, 64px); }
+.galerie .item:hover .mot { color: color-mix(in srgb, var(--sable) 50%, transparent); }
+.galerie-cta { margin-top: 48px; display: flex; justify-content: center; }
+
+/* ============ 6. TÉMOIGNAGES ============ */
+.temoignages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.temoignage {
+  background: var(--sable);
+  border-radius: 0;
+  border-left: 3px solid var(--or);
+  padding: 28px;
+  display: flex; flex-direction: column;
+}
+.stars { font-size: 13px; letter-spacing: 2px; margin-bottom: 20px; }
+.temoignage blockquote {
+  font-family: var(--f-display); font-style: italic; font-weight: 400;
+  font-size: 22px; line-height: 1.45; color: var(--nuit);
+  flex: 1;
+}
+.temoignage figcaption { margin-top: 28px; padding-top: 18px; border-top: 1px solid color-mix(in srgb, var(--brume) 50%, transparent); }
+.temoignage .nom { font-weight: 500; font-size: 14px; color: var(--nuit); }
+.temoignage .projet { font-size: 12px; color: var(--terre); letter-spacing: 0.04em; margin-top: 2px; }
+
+/* ============ 7. CONTACT ============ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 0;
+  align-items: stretch;
+}
+.contact-card {
+  background: var(--nuit);
+  border-radius: 0;
+  padding: 40px;
+  display: flex; flex-direction: column;
+  gap: 20px;
+}
+.contact-card .nom {
+  font-family: var(--f-display); font-weight: 400; font-style: italic; font-size: 20px; color: var(--or);
+  margin-bottom: 12px;
+}
+.contact-card .big {
+  font-family: var(--f-display); font-weight: 300; font-size: clamp(28px, 2.6vw, 36px); line-height: 1.2; color: var(--ivoire);
+  margin-bottom: 20px;
+}
+.contact-card a { transition: color .2s; display: inline-flex; gap: 12px; align-items: center; word-break: break-word; }
+.contact-card .mail { color: var(--ivoire); font-size: 15px; }
+.contact-card .insta { color: var(--brume); font-size: 15px; }
+.contact-card a:hover { color: var(--or); }
+.contact-card hr { border: 0; height: 1px; background: color-mix(in srgb, var(--terre) 30%, transparent); margin: 12px 0; }
+.contact-card .note { font-family: var(--f-display); font-weight: 300; font-style: italic; font-size: 15px; color: var(--brume); line-height: 1.6; }
+.contact-card .spacer { flex: 1; }
+.contact-card .etapes { list-style: none; display: grid; gap: 14px; counter-reset: e; }
+.contact-card .etapes li { counter-increment: e; display: flex; gap: 14px; font-size: 13.5px; color: var(--brume); line-height: 1.5; }
+.contact-card .etapes li::before {
+  content: counter(e, decimal-leading-zero);
+  font-family: var(--f-display); font-style: italic; color: var(--or); font-size: 16px; line-height: 1.3; min-width: 22px;
+}
+
+.form {
+  background: var(--ivoire);
+  padding: clamp(32px, 4vw, 52px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px 20px;
+}
+.field { display: flex; flex-direction: column; gap: 8px; }
+.field.full { grid-column: 1 / -1; }
+.field label {
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--terre);
+}
+.field label .opt { font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--brume); }
+.field input, .field select, .field textarea {
+  width: 100%;
+  background: var(--sable);
+  border: 1px solid var(--brume);
+  border-radius: 0;
+  padding: 14px 16px;
+  font-size: 15px;
+  color: var(--nuit);
+  transition: border-color .25s, background-color .25s;
+  -webkit-appearance: none; appearance: none;
+}
+.field textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+.field select {
+  cursor: pointer;
+  padding-right: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A6A58' fill='none' stroke-width='1.2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+}
+.field input::placeholder, .field textarea::placeholder { color: var(--brume); }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--or); background-color: var(--ivoire); }
+.field input:user-invalid, .field textarea:user-invalid, .field select:user-invalid { border-color: var(--terre); }
+.form-foot { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-top: 8px; }
+.form-foot small { font-size: 12px; color: var(--terre); max-width: 300px; line-height: 1.5; }
+.btn-send {
+  background: var(--or); color: var(--nuit);
+  border-radius: 0; border: 1px solid var(--or);
+  font-weight: 500;
+}
+.btn-send:hover { background: var(--nuit); color: var(--or); border-color: var(--nuit); }
+.form-status { grid-column: 1 / -1; font-size: 14px; color: var(--terre); min-height: 1em; }
+.form-status.ok { color: var(--nuit); font-family: var(--f-display); font-style: italic; font-size: 19px; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* ============ 8. FOOTER ============ */
+.footer {
+  background: var(--nuit);
+  border-top: 1px solid var(--terre);
+  padding: 72px 0 40px;
+  color: var(--brume);
+}
+.footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 32px; padding-bottom: 40px; border-bottom: 1px solid color-mix(in srgb, var(--terre) 30%, transparent); }
+.footer .logo-name { font-size: 20px; }
+.footer .logo-name .v { color: var(--brume); }
+.footer .logo-name .i { color: var(--ivoire); }
+.footer .tag { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--terre); margin-top: 10px; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; align-items: center; }
+.footer-links a:hover { color: var(--or); }
+.footer-links .sep { color: var(--terre); }
+.footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-top: 28px; font-size: 12px; color: var(--terre); letter-spacing: 0.02em; }
+.footer-bottom a:hover { color: var(--or); }
+
+/* ============ REVEAL ============ */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease-out, transform .6s ease-out; transition-delay: calc(var(--i, 0) * 0.08s); }
+.reveal.in { opacity: 1; transform: none; }
+.no-js .reveal { opacity: 1; transform: none; }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1280px) {
+  .service { min-height: 320px; }
+}
+
+@media (max-width: 1024px) {
+  :root { --header-h: 72px; }
+  .header.scrolled { height: 64px; }
+  .burger { display: block; }
+  .nav {
+    position: fixed;
+    top: var(--bandeau-h); left: 0; right: 0; bottom: 0;
+    background: var(--ivoire);
+    background-image: var(--chevrons); background-size: 20px 20px;
+    flex-direction: column; justify-content: center; gap: 48px;
+    opacity: 0; visibility: hidden;
+    transition: opacity .4s var(--ease), visibility .4s;
+    z-index: -1;
+  }
+  .menu-open .nav { opacity: 1; visibility: visible; }
+  .nav-links { flex-direction: column; align-items: center; gap: 22px; }
+  .nav-links a { font-family: var(--f-display); font-style: italic; font-weight: 300; font-size: 38px; }
+  .btn-header { font-size: 14px; padding: 16px 30px; }
+
+  .hero-grid { grid-template-columns: 1fr; min-height: 0; }
+  .hero-text { padding: clamp(64px, 10vw, 100px) var(--gutter); }
+  .hero-visual { min-height: 380px; }
+
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .bandeau { font-size: 10px; letter-spacing: 0.08em; }
+  .bandeau .hide-sm { display: none; }
+
+  .services-grid { grid-template-columns: 1fr; }
+  .service { min-height: 0; }
+  .service-top { margin-bottom: 32px; }
+
+  .valeurs { grid-template-columns: 1fr; gap: 32px; margin-top: 64px; }
+
+  .galerie { grid-template-columns: 1fr 1fr; grid-template-rows: 320px 200px 200px; }
+  .galerie .item:first-child { grid-row: auto; grid-column: 1 / -1; }
+
+  /* témoignages : scroll snap horizontal */
+  .temoignages-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    margin: 0 calc(var(--gutter) * -1);
+    padding: 0 var(--gutter) 16px;
+    scroll-padding: 0 var(--gutter);
+    scrollbar-width: none;
+  }
+  .temoignages-grid::-webkit-scrollbar { display: none; }
+  .temoignage { flex: 0 0 84%; scroll-snap-align: start; }
+  .swipe-hint { display: block !important; }
+
+  .form { grid-template-columns: 1fr; }
+  .contact-card { padding: 32px; }
+  .footer-top { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 480px) {
+  .bandeau .hide-xs { display: none; }
+  .logo-name { font-size: 23px; }
+  .hero-ctas .btn { width: 100%; }
+  .hero-visual { min-height: 320px; padding: 64px 32px; }
+  .reassurance ul { justify-content: flex-start; gap: 10px 24px; font-size: 12.5px; }
+  .service { padding: 28px 24px; }
+  .galerie { grid-template-columns: 1fr; grid-template-rows: 300px repeat(4, 200px); }
+  .temoignage { flex-basis: 90%; padding: 24px; }
+  .temoignage blockquote { font-size: 20px; }
+  .contact-card { padding: 28px 24px; }
+  .form { padding: 28px 20px; }
+  .form-foot .btn { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; transition-delay: 0s !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body class="no-js">
+
+<!-- 0. BANDEAU -->
+<div class="bandeau" role="note">
+  <span>✨ Voyage d'Intérieur</span>
+  <span class="sep hide-xs">·</span>
+  <span class="hide-xs">Décoration &amp; Aménagement</span>
+  <span class="sep hide-sm">·</span>
+  <a class="hide-sm" href="mailto:contact@voyage-d-interieur.com">contact@voyage-d-interieur.com</a>
+</div>
+
+<!-- 1. HEADER -->
+<header class="header" id="header">
+  <div class="container">
+    <a href="#top" class="logo" aria-label="Voyage d'Intérieur — accueil">
+      <span class="logo-name"><span class="v">Voyage</span><span class="i"> d'Intérieur</span></span>
+      <span class="logo-sub">Décoration · Aménagement</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#approche">Approche</a></li>
+        <li><a href="#realisations">Réalisations</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn-header">Prendre rendez-vous</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 2. HERO -->
+  <section class="hero bg-sable" aria-labelledby="hero-title">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <span class="eyebrow reveal">Studio de décoration intérieure</span>
+        <h1 id="hero-title" class="reveal" style="--i:1">
+          <span class="l">Révélez le potentiel</span>
+          <span class="l or">de votre intérieur.</span>
+        </h1>
+        <p class="hero-sub reveal" style="--i:2">
+          Voyage d'Intérieur vous accompagne de A à Z pour créer des espaces
+          qui vous ressemblent vraiment — chaleureux, élégants, pensés pour votre vie.
+        </p>
+        <div class="hero-ctas reveal" style="--i:3">
+          <a href="mailto:contact@voyage-d-interieur.com" class="btn btn-or">Démarrer mon projet <span class="arrow" aria-hidden="true">→</span></a>
+          <a href="#realisations" class="btn btn-line">Découvrir nos réalisations</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <p class="hero-quote">
+          <span class="mark">«</span>
+          Douceur <span class="dot">·</span> Évasion <span class="dot">·</span> Élégance <span class="dot">·</span> Clarté <span class="dot">·</span> Harmonie
+          <span class="mark end">»</span>
+        </p>
+        <span class="caption">@voyagedinterieur</span>
+      </div>
+    </div>
+    <div class="reassurance">
+      <ul>
+        <li>✨ Conseil déco</li>
+        <li>🎨 Moodboard</li>
+        <li>🛋️ Sélection mobilier</li>
+        <li>🏠 Suivi de projet</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 3. SERVICES -->
+  <section class="section bg-ivoire" id="services" aria-labelledby="services-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow reveal">Nos services</span>
+        <h2 class="h2 reveal" id="services-title" style="--i:1">Un accompagnement sur mesure, à chaque étape.</h2>
+        <p class="lead reveal" style="--i:2">
+          Du premier rendez-vous à la pose du dernier coussin, Voyage d'Intérieur
+          vous guide pour transformer votre espace en un lieu qui vous inspire.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service reveal" style="--i:0">
+          <div class="service-top"><span class="service-icon" aria-hidden="true">🔍</span><span class="service-num">01</span></div>
+          <h3>Audit &amp; Conseil</h3>
+          <p class="accroche">Un premier regard neuf sur votre espace.</p>
+          <p>Diagnostic déco, identification des points de friction, recommandations concrètes pour valoriser votre intérieur tel qu'il est.</p>
+        </article>
+        <article class="service reveal" style="--i:1">
+          <div class="service-top"><span class="service-icon" aria-hidden="true">🎨</span><span class="service-num">02</span></div>
+          <h3>Moodboard &amp; Conception</h3>
+          <p class="accroche">Votre projet en images avant les achats.</p>
+          <p>Planche tendance, palette matières et couleurs, sélection de références. Vous visualisez le résultat avant de dépenser un euro.</p>
+        </article>
+        <article class="service reveal" style="--i:2">
+          <div class="service-top"><span class="service-icon" aria-hidden="true">🛋️</span><span class="service-num">03</span></div>
+          <h3>Shopping Accompagné</h3>
+          <p class="accroche">Les bonnes pièces, aux bons endroits.</p>
+          <p>Sélection de mobilier, luminaires, textiles et objets déco. Accès à des fournisseurs et pièces hors réseau grand public.</p>
+        </article>
+        <article class="service reveal" style="--i:3">
+          <div class="service-top"><span class="service-icon" aria-hidden="true">📐</span><span class="service-num">04</span></div>
+          <h3>Aménagement de l'Espace</h3>
+          <p class="accroche">Chaque mètre carré compte.</p>
+          <p>Plan de circulation, optimisation des volumes, organisation des zones. Votre espace repensé dans sa globalité.</p>
+        </article>
+        <article class="service reveal" style="--i:4">
+          <div class="service-top"><span class="service-icon" aria-hidden="true">🏠</span><span class="service-num">05</span></div>
+          <h3>Suivi de Projet</h3>
+          <p class="accroche">Vous ne gérez rien. On s'en charge.</p>
+          <p>Coordination des artisans, validation des livraisons, levée des réserves. Votre intérieur livré comme sur le moodboard.</p>
+        </article>
+        <article class="service reveal" style="--i:5">
+          <div class="service-top"><span class="service-icon" aria-hidden="true">🌿</span><span class="service-num">06</span></div>
+          <h3>Seconde Vie Déco</h3>
+          <p class="accroche">Réinventez ce que vous possédez déjà.</p>
+          <p>Relooking de meubles, changement de dispositions, nouvelles associations. Le changement, sans tout racheter.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. APPROCHE -->
+  <section class="approche bg-nuit" id="approche" aria-labelledby="approche-title">
+    <div class="container">
+      <div class="inner">
+        <span class="eyebrow reveal">Notre approche</span>
+        <h2 id="approche-title" class="reveal" style="--i:1">Un intérieur n'est jamais seulement un décor.</h2>
+        <div class="orn reveal" style="--i:2" aria-hidden="true"></div>
+        <p class="texte reveal" style="--i:3">
+          Il raconte qui vous êtes, comment vous vivez, ce qui vous apaise.
+          Voyage d'Intérieur ne plaque pas un style à la mode sur votre espace —
+          nous partons de vous : vos habitudes, vos envies, vos contraintes. Le
+          résultat est un intérieur qui vous ressemble profondément, et dans lequel
+          vous vous sentez enfin chez vous.
+        </p>
+      </div>
+      <div class="valeurs">
+        <div class="valeur reveal" style="--i:0">
+          <h3>Écoute</h3>
+          <p>Votre projet commence par une conversation, pas un catalogue.</p>
+        </div>
+        <div class="valeur reveal" style="--i:1">
+          <h3>Cohérence</h3>
+          <p>Chaque pièce, chaque matière, chaque lumière se répondent.</p>
+        </div>
+        <div class="valeur reveal" style="--i:2">
+          <h3>Personnalisation</h3>
+          <p>Aucun projet ne ressemble à un autre. Jamais.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. RÉALISATIONS -->
+  <section class="section bg-sable" id="realisations" aria-labelledby="real-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow reveal">Réalisations</span>
+        <h2 class="h2 reveal" id="real-title" style="--i:1"><em>Intérieurs imaginés, espaces transformés.</em></h2>
+      </div>
+
+      <!-- Remplacer chaque placeholder par : <img src="photo.jpg" alt="…" loading="lazy"> dans .item -->
+      <div class="galerie">
+        <figure class="item reveal" style="--i:0"><span class="mot" aria-hidden="true">Douceur</span><figcaption class="label">Salon · Douceur</figcaption></figure>
+        <figure class="item reveal" style="--i:1"><span class="mot" aria-hidden="true">Évasion</span><figcaption class="label">Chambre · Évasion</figcaption></figure>
+        <figure class="item reveal" style="--i:2"><span class="mot" aria-hidden="true">Clarté</span><figcaption class="label">Cuisine · Clarté</figcaption></figure>
+        <figure class="item reveal" style="--i:3"><span class="mot" aria-hidden="true">Élégance</span><figcaption class="label">Salle de bain · Élégance</figcaption></figure>
+        <figure class="item reveal" style="--i:4"><span class="mot" aria-hidden="true">Harmonie</span><figcaption class="label">Entrée · Harmonie</figcaption></figure>
+      </div>
+
+      <div class="galerie-cta reveal">
+        <a href="https://www.instagram.com/voyagedinterieur/" target="_blank" rel="noopener" class="btn btn-line">📸 Voir toutes les réalisations <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. TÉMOIGNAGES — remplacer par de vrais avis clients -->
+  <section class="section bg-ivoire" id="temoignages" aria-labelledby="temo-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow reveal">Témoignages</span>
+        <h2 class="h2 reveal" id="temo-title" style="--i:1">Ce qu'ils en disent.</h2>
+      </div>
+      <div class="temoignages-grid">
+        <figure class="temoignage reveal" style="--i:0">
+          <div class="stars" aria-label="5 étoiles sur 5">⭐⭐⭐⭐⭐</div>
+          <blockquote>« Je ne me reconnaissais plus dans mon appartement. Aujourd'hui, je ne veux plus le quitter. Chaque détail est à sa place. »</blockquote>
+          <figcaption><div class="nom">Amélie V., Paris</div><div class="projet">Refonte salon &amp; chambre</div></figcaption>
+        </figure>
+        <figure class="temoignage reveal" style="--i:1">
+          <div class="stars" aria-label="5 étoiles sur 5">⭐⭐⭐⭐⭐</div>
+          <blockquote>« Le moodboard m'a fait réaliser exactement ce que je voulais. Et le résultat final est encore mieux que je n'aurais imaginé. »</blockquote>
+          <figcaption><div class="nom">Thomas &amp; Lucie R., Lyon</div><div class="projet">Appartement complet 85 m²</div></figcaption>
+        </figure>
+        <figure class="temoignage reveal" style="--i:2">
+          <div class="stars" aria-label="5 étoiles sur 5">⭐⭐⭐⭐⭐</div>
+          <blockquote>« Un vrai regard extérieur, des conseils concrets, et un accompagnement du début à la fin. Je recommande à 100 %. »</blockquote>
+          <figcaption><div class="nom">Sandrine M., Bordeaux</div><div class="projet">Seconde vie déco maison</div></figcaption>
+        </figure>
+      </div>
+      <p class="swipe-hint" style="display:none; margin-top:16px; font-size:12px; color:var(--terre); letter-spacing:.06em;">← Faites glisser →</p>
+    </div>
+  </section>
+
+  <!-- 7. CONTACT -->
+  <section class="section bg-sable" id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow reveal">Contact</span>
+        <h2 class="h2 reveal" id="contact-title" style="--i:1; font-weight:300; font-style:italic;">Parlons de votre intérieur.</h2>
+        <p class="lead reveal" style="--i:2">
+          Décrivez votre projet en quelques lignes — nous vous répondons
+          sous 48h pour organiser un premier échange.
+        </p>
+      </div>
+
+      <div class="contact-grid reveal" style="--i:3">
+        <aside class="contact-card">
+          <div>
+            <p class="nom">Voyage d'Intérieur</p>
+            <p class="big">Un premier échange,<br>et tout commence.</p>
+          </div>
+          <a class="mail" href="mailto:contact@voyage-d-interieur.com">✉️ contact@voyage-d-interieur.com</a>
+          <a class="insta" href="https://www.instagram.com/voyagedinterieur/" target="_blank" rel="noopener">📸 @voyagedinterieur</a>
+          <hr>
+          <ol class="etapes">
+            <li>Vous décrivez votre projet et vos envies.</li>
+            <li>Nous vous recontactons sous 48h.</li>
+            <li>Premier échange pour cerner votre intérieur.</li>
+          </ol>
+          <div class="spacer"></div>
+          <hr>
+          <p class="note">Premier échange gratuit et sans engagement.</p>
+        </aside>
+
+        <!-- Pour activer l'envoi : remplacer action par l'URL Web3Forms / Formspree et passer data-mode="post" -->
+        <form class="form" id="form" action="mailto:contact@voyage-d-interieur.com" method="post" data-mode="mailto" novalidate>
+          <div class="field">
+            <label for="prenom">Prénom</label>
+            <input id="prenom" name="prenom" type="text" autocomplete="given-name" required>
+          </div>
+          <div class="field">
+            <label for="nom">Nom</label>
+            <input id="nom" name="nom" type="text" autocomplete="family-name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="tel">Téléphone <span class="opt">(facultatif)</span></label>
+            <input id="tel" name="telephone" type="tel" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="type">Type de projet</label>
+            <select id="type" name="type_projet" required>
+              <option value="" disabled selected>Sélectionner…</option>
+              <option>Salon &amp; Séjour</option>
+              <option>Chambre</option>
+              <option>Cuisine</option>
+              <option>Salle de bain</option>
+              <option>Entrée &amp; Couloir</option>
+              <option>Appartement complet</option>
+              <option>Maison complète</option>
+              <option>Maison neuve</option>
+              <option>Bureau &amp; Espace professionnel</option>
+              <option>Seconde Vie Déco</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="surface">Surface approximative</label>
+            <select id="surface" name="surface">
+              <option value="" disabled selected>Sélectionner…</option>
+              <option>&lt; 30 m²</option>
+              <option>30–60 m²</option>
+              <option>60–100 m²</option>
+              <option>100–150 m²</option>
+              <option>&gt; 150 m²</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="message">Décrivez votre projet en quelques mots</label>
+            <textarea id="message" name="message" rows="4" placeholder="Pièce(s) concernée(s), ambiance rêvée, contraintes, délais…" required></textarea>
+          </div>
+          <div class="hp" aria-hidden="true"><label for="website">Ne pas remplir</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+          <div class="form-foot">
+            <small>Vos informations restent confidentielles et ne servent qu'à vous recontacter.</small>
+            <button type="submit" class="btn btn-send">Envoyer mon projet <span class="arrow" aria-hidden="true">→</span></button>
+          </div>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- 8. FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="logo-name"><span class="v">Voyage</span><span class="i"> d'Intérieur</span></div>
+        <div class="tag">Décoration &amp; Aménagement Intérieur</div>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:contact@voyage-d-interieur.com">✉️ contact@voyage-d-interieur.com</a>
+        <span class="sep">·</span>
+        <a href="https://www.instagram.com/voyagedinterieur/" target="_blank" rel="noopener">📸 @voyagedinterieur</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Voyage d'Intérieur — Tous droits réservés</span>
+      <span>Site réalisé par <a href="https://paymentflow.fr" target="_blank" rel="noopener">Payment Flow</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  document.body.classList.remove('no-js');
+
+  var header = document.getElementById('header');
+  var burger = document.getElementById('burger');
+  var nav = document.getElementById('nav');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Header au scroll */
+  function onScroll() {
+    header.classList.toggle('scrolled', window.scrollY > 12);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* Menu mobile */
+  function setMenu(open) {
+    header.classList.toggle('menu-open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  burger.addEventListener('click', function () {
+    setMenu(!header.classList.contains('menu-open'));
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.closest('a')) setMenu(false);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && header.classList.contains('menu-open')) setMenu(false);
+  });
+  window.matchMedia('(min-width: 1025px)').addEventListener('change', function (mq) {
+    if (mq.matches) setMenu(false);
+  });
+
+  /* Scroll reveal */
+  var reveals = document.querySelectorAll('.reveal');
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    reveals.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(function (el) { io.observe(el); });
+  }
+
+  /* Scrollspy */
+  var links = document.querySelectorAll('.nav-links a');
+  var map = {};
+  links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+  var sections = Object.keys(map).map(function (id) { return document.getElementById(id); }).filter(Boolean);
+
+  function spy() {
+    var offset = window.innerHeight * 0.35;
+    var current = null;
+    sections.forEach(function (s) {
+      if (s.getBoundingClientRect().top - offset <= 0) current = s.id;
+    });
+    if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 4) current = 'contact';
+    links.forEach(function (a) { a.classList.remove('active'); });
+    if (current && map[current]) map[current].classList.add('active');
+  }
+  window.addEventListener('scroll', spy, { passive: true });
+  spy();
+
+  /* Formulaire */
+  var form = document.getElementById('form');
+  var status = document.getElementById('form-status');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    status.className = 'form-status';
+
+    if (form.website.value) return; // honeypot
+
+    if (!form.checkValidity()) {
+      var firstInvalid = form.querySelector(':invalid');
+      status.textContent = 'Merci de compléter les champs requis.';
+      if (firstInvalid) firstInvalid.focus();
+      return;
+    }
+
+    var d = new FormData(form);
+
+    if (form.dataset.mode === 'post') {
+      /* Mode Web3Forms / Formspree */
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      fetch(form.action, { method: 'POST', body: d, headers: { Accept: 'application/json' } })
+        .then(function (r) {
+          if (!r.ok) throw new Error();
+          form.reset();
+          status.className = 'form-status ok';
+          status.textContent = 'Merci ! Votre projet est bien arrivé — nous revenons vers vous sous 48h.';
+        })
+        .catch(function () {
+          status.textContent = 'Une erreur est survenue. Écrivez-nous directement à contact@voyage-d-interieur.com.';
+        })
+        .finally(function () { btn.disabled = false; });
+      return;
+    }
+
+    /* Mode par défaut : ouvre le client mail pré-rempli */
+    var subject = 'Nouveau projet — ' + (d.get('type_projet') || 'Décoration') + ' — ' + d.get('prenom') + ' ' + d.get('nom');
+    var body = [
+      'Prénom : ' + d.get('prenom'),
+      'Nom : ' + d.get('nom'),
+      'Email : ' + d.get('email'),
+      'Téléphone : ' + (d.get('telephone') || '—'),
+      'Type de projet : ' + (d.get('type_projet') || '—'),
+      'Surface : ' + (d.get('surface') || '—'),
+      '',
+      'Projet :',
+      d.get('message')
+    ].join('\n');
+    window.location.href = 'mailto:contact@voyage-d-interieur.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    status.className = 'form-status ok';
+    status.textContent = 'Votre messagerie s\'ouvre avec votre projet pré-rempli — il ne reste qu\'à envoyer.';
+  });
+})();
+</script>
+</body>
+</html>
